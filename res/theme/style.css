@@ -1,0 +1,172 @@
+/* Tipo */
+body {
+	
+}
+
+p {
+
+}
+
+strong {
+
+}
+
+/* Clase */
+.job {
+
+}
+
+.current-job {
+
+}
+
+.job.current-job {
+
+}
+
+li.job.current-job {
+
+}
+
+li.job.current-job#job-86655 {
+
+}
+
+li.job.current-job#job-97898 {
+
+}
+/* ID */
+#job-87456 {
+
+}
+
+/* Atributo */
+[href] {
+
+}
+
+[href="http://www.facebook.com/oldlaptop/"] {
+
+}
+
+[type="text"] {
+	
+}
+
+[type="email"] {
+
+}
+
+[atributo-de-fox] {
+	background: red;
+}
+
+[href*="fox"] {
+
+}
+
+[href^="mailto:"] {
+
+}
+
+[href$=".org"] {
+
+}
+
+[href^="mailto:"][href$=".org"] {
+
+}
+
+[href*="facebook"] {
+	
+}
+
+/* Pseudo-clases (estados) */
+:hover {}
+:active {}
+:focus {}
+:target {}
+:visited {}
+:link {}
+
+/* Forms */
+:required {}
+:checked {}
+:invalid {background: red;}
+:valid {}
+:disabled {}
+
+/* Estructura del DOM */
+:first-child {}
+:last-child {}
+:nth-child(5) {}
+:nth-child(2n) {}
+:nth-child(even) {}
+:nth-child(2n+1) {}
+:nth-child(odd) {}
+:nth-child() {}
+:nth-last-child(2) {}
+ul:nth-of-type(1) {}
+ul:nth-last-of-type() {}
+:empty {}
+:only-child {}
+:only-of-type {}
+
+/* Pseudo-elementos */
+::placeholder {}
+::-webkit-scrollbar {}
+::first-letter {}
+::first-line {
+	color: red;
+}
+
+/* Contenido generado */
+
+h1::before {
+	content: "### " url("images/star.png");
+	display: inline-block;
+	background-color: green;
+}
+h1::after {
+	content: "" "XD " "123 " "dfkjdfjkg";
+	display: block;
+	width: 50px;
+	height: 50px;
+	background: cyan url("images/star.png") no-repeat 50% 50% / contain;
+}
+
+article.product[data-offer]#123 {
+	
+}
+
+article .product [data-offer] #123 {
+	
+}
+
+article > .product > [data-offer] > #123 {
+
+}
+
+article + article {
+
+}
+
+h1 + p {
+	color: #888;
+}
+
+dd ~ dt {
+
+}
+
+:is(main > header > nav, footer nav, article) ul {
+
+}
+
+header  > nav > :is(ul, li, a) {
+
+}
+
+:is() {
+
+}

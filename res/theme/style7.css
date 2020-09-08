@@ -1,0 +1,19 @@
+ul {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	place-items: center;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.card {
+	border-radius: 10px;
+	border: 1px solid #bbb;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+
+.card:nth-child(1) {
+	align-self: end;
+}

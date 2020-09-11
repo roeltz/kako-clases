@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+html {
+	height: 100%;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100%;
+	margin: 0;
+	font-family: "Quicksand";
+}
+
+body > header,
+body > footer {
+	grid-column: span 2;
+}
+
+body > header {
+	--size: 70px;
+	--padding: 10px;
+	display: grid;
+	box-sizing: border-box;
+	grid-template-columns: 1fr auto;
+	background: #eee;
+	padding: var(--padding);
+	height: var(--size);
+}
+
+body > header h1 {
+	--ratio: 4.3;
+	--logo-size: calc(var(--size) - var(--padding) * 2);
+	align-self: center;
+	width: calc(var(--logo-size) * var(--ratio));
+	height: var(--logo-size);
+	margin: 0;
+	background: url("images/logo-chuzos.png") no-repeat 50% 50% / contain;
+	font-size: 0;
+}
+
+body > header nav {
+	display: flex;
+}
+
+body > header ul {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+body > header a:hover {
+	background-color: #ccc;
+}
+
+.main-links a {
+	/*display: block;
+	height: var(--size);
+	line-height: var(--size);
+	*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 0 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.social-links {
+	align-items: center;
+}
+
+.social-links a {
+	--size: 40px;
+	display: block;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 10px;
+	background: no-repeat 50% 50% / 60% auto;
+	font-size: 0;
+}
+
+.social-links a[href*="facebook.com"] {
+	background-image: url("images/fb.png");
+}
+
+.social-links a[href*="twitter.com"] {
+	background-image: url("images/twitter.png");
+}
+
+.social-links a[href*="instagram.com"] {
+	background-image: url("images/ig.png");
+}
+
+main {
+
+}
+
+body > aside {
+	background: #f0f0f0;
+}
+
+body > footer {
+	display: grid;
+	grid-gap: 10px 50px;
+	grid-template-columns: 1fr auto auto;
+	padding: 10px;
+	background: #aaa;
+}
+
+body > footer p {
+	margin: 0;
+}
+
+body > footer nav {
+	display: contents;
+}
+
+body > footer ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+body > footer nav a {
+	display: block;
+	padding: 5px;
+}

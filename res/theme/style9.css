@@ -1,0 +1,87 @@
+html {
+	--fs: 20px;
+	font-size: 15px;
+}
+
+body {
+	margin: 0;
+}
+
+main {
+	font-size: 20px;
+}
+
+main p {
+	margin: 0;
+	width: 10em;
+	font-size: 2em;
+	font-size: 2ex;
+	font-size: 2ch;
+	background: green;
+	font-family: monospace;
+}
+
+main p span {
+	font-size: 0.5rem;
+}
+
+main p span strong {
+	font-size: 2rem;
+}
+
+main p span strong::after {
+	content: "";
+	display: inline-block;
+	width: 1ex;
+	height: 1ex;
+	background: yellow;
+}
+
+.square {
+	display: none;
+	background-color: red;
+	width: 100vw;
+	height: 100vh;
+	width: 100vmin;
+	height: 100vmax;
+}
+
+.square h1 {
+	margin: 0;
+	font-size: 18.4vw;
+}
+
+footer {
+	border: 1px solid #000;
+	position: relative;
+	width: 10cm;
+	height: 10cm;
+	background-color: blue;
+}
+
+footer p {
+	width: 50%;
+	height: 50%;
+	padding: 10%;
+	background-color: gray;
+}
+
+section {
+	width: 600px;
+	background-color: pink;
+}
+
+section figure {
+	position: relative;
+	margin: 10%;
+	padding-top: 56.25%;
+}
+
+section figure div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: brown;
+}

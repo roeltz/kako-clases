@@ -1,0 +1,84 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	padding: 100px;
+}
+
+.card {
+	position: relative;
+	border: 1px solid #000;
+	width: 20em;
+}
+
+.price {
+	position: absolute;
+	top: -1em;
+	right: -1em;
+	width: 4em;
+	height: 4em;
+	line-height: 4em;
+	border-radius: 100%;
+	background-color: yellow;
+	text-align: center;
+}
+
+.offer .price {
+	font-size: 2rem;
+}
+
+button {
+	position: relative;
+	line-height: 1;
+	padding: 0.5em 1em;
+	background: rgb(9, 119, 192);
+	color: #fff;
+	border-radius: 100vh;
+	border: 1px solid #000;
+	outline: none;
+}
+
+button.not::before {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: block;
+	content: "";
+	width: 0.7em;
+	height: 0.7em;
+	background: red;
+	border-radius: 100vh;
+}
+
+.call-to-action {
+	font-size: 40px;
+}
+
+main > h1 {
+	padding-top: 2em;
+	position: relative;
+	text-align: center;
+}
+
+main > h1::before,
+main > h1::after {
+	display: block;
+	content: "";
+	width: 2em;
+	height: 2em;
+	border-radius: 100%;
+	position: absolute;
+	top: 0;
+	mix-blend-mode: hard-light;
+}
+
+main > h1::before {
+	background-color: yellow;
+	left: calc(50% - 1em + 0.5em);
+}
+
+main > h1::after {
+	left: calc(50% - 1em - 0.5em);
+	background-color: orangered;
+}

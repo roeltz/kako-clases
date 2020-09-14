@@ -1,0 +1,149 @@
+@color: red;
+@size: 300px;
+@image: url("images/arabesque-floral-115507245253j5uh6ciqi.png");
+@index: 2;
+@div-color: blue;
+
+main {
+	@color: green;
+	@image: url("images/a@{index}.png");
+	--color: red;
+	background: @color @image 50% 50% no-repeat / contain;
+	width: @size;
+	height: @size;
+
+	footer {
+		@color: gray;
+	}
+}
+
+@thing: 3;
+
+div {
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+	background-color: @div-color;
+}
+
+div:hover {
+	background-color: @div-color + #666;
+}
+
+.user-name {
+	font-style: italic;
+}
+
+.icon() {
+
+}
+
+.icon(@image) when(isurl(@image)) {
+	background-image: @image;
+}
+
+.icon(@size) when(isnumber(@size)) {
+	width: @size;
+}
+
+.icon(@image, @size) {
+	
+}
+
+.icon-size() {
+
+}
+
+.icon-image() {
+
+}
+
+.standard-font(@size: 20px) when (isnumber(@size)) {
+	.icon;
+	.icon(url("jdhdjkdfhd"));
+	.icon(1.5em);
+	font-family: "Roboto", sans-serif;
+	font-size: @size;
+	font-weight: bold;
+}
+
+.standard-font(@color: red) when (iscolor(@color)) {
+	.standard-font(15px);
+	color: @color;
+}
+
+.thing-@{thing} {
+	.user-name;
+	width: 100px;
+	height: 100px;
+	background-color: darken(yellow, 20%);
+}
+
+.standard-card(@bg-color, @size) {
+	border: 1px solid @bg-color;
+
+	header {
+		.standard-font(@size);
+	}
+
+	section.content {
+		background: @bg-color;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	footer {
+		text-align: right;
+	}
+}
+
+.thing {
+	.standard-card(red, 20px);
+
+	&-1 {
+
+	}
+
+	&-2 {
+
+	}
+
+	&-3 {
+		
+	}
+}
+
+
+main {
+	.standard-font(red);
+	font-size: 20px;
+	
+	p {
+		margin: 0;
+		width: 10em;
+		font-size: 2em;
+		font-size: 2ex;
+		font-size: 2ch;
+		background: green;
+		font-family: monospace;
+	}
+
+	span {
+		font-size: 0.5rem;
+
+		strong {
+			font-size: 2rem;
+			
+			&::after {
+				content: "";
+				display: inline-block;
+				width: 1ex;
+				height: 1ex;
+				background: yellow;
+			}
+		}
+	}
+}
+

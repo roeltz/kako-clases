@@ -1,0 +1,85 @@
+body {
+	margin: 0;
+}
+
+.bg {
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
+	border: 1px solid #000;
+	background: none;
+	background: #ff0000;
+	background: rgb(255, 0, 0);
+	background: rgba(255, 0, 0, 0.5);
+	background: hsl(0, 100%, 50%);
+	background: hsla(0, 100%, 50%, 0.5);
+	background: url("images/logo-chuzos.png");
+	background-size: 100% auto;
+	background-size: 1000px auto;
+	//background-size: contain;
+	//background-size: cover;
+	background-repeat: no-repeat;
+	//background-repeat: repeat-x;
+	background-position: 75% 50%;
+	background-attachment: local;
+
+	//background: linear-gradient(-5deg, white 40%, blue 40.5%);
+	background: linear-gradient(to bottom, red 100px, orange 30vh, yellow, lime, green, cyan, blue, purple);
+	background: repeating-linear-gradient(to bottom, black 0 20px, white 25px 45px, black 50px);
+	background: repeating-linear-gradient(45deg, black 0 20px, yellow 20px 40px);
+
+	background: radial-gradient(circle farthest-corner at 80% 50%, blue, red, yellow, cyan);
+	background: repeating-radial-gradient(circle farthest-corner at 80% 50%, blue 20px, red 30px, blue 60px);
+
+	background: conic-gradient(from 45deg at 80% 80%,yellow, blue, red);
+	background: repeating-conic-gradient(from 45deg at 80% 80%,yellow 5%, blue 10%, red 15%);
+
+	background-image:
+		url("images/logo-chuzos.png"),
+		url("images/fb.png")
+	;
+	background-repeat:
+		no-repeat,
+		repeat
+	;
+	background-position:
+		50% 50%,
+		0 0
+	;
+	background-size:
+		50% auto,
+		auto
+	;
+
+	background:
+		linear-gradient(45deg, white 0 20px, blue 20px 40px) 0 30% repeat-x / 40px 100px,
+		url("images/logo-chuzos.png") 50% 50% no-repeat / 50% auto,
+		linear-gradient(to right, red, transparent, blue),
+		radial-gradient(circle farthest-corner at 50% 50%, transparent 50%, rgba(0,0,0,0.95)),
+		url("images/fb.png")
+	;
+}
+
+.buttons {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+}
+
+button {
+	display: block;
+	height: 68px;
+	border: none;
+	padding: 0 40px;
+	background:
+		url("images/sprite-top-left.png") 0 0 no-repeat / 46px 29px,
+		url("images/sprite-top-right.png") 100% 0 no-repeat / 46px 29px,
+		url("images/sprite-bottom-left.png") 0 100% no-repeat / 46px 29px,
+		url("images/sprite-bottom-right.png") 100% 100% no-repeat / 46px 29px,
+		url("images/sprite-top.png") 0 0 no-repeat / 100% 29px,
+		url("images/sprite-bottom.png") 0 100% no-repeat / 100% 29px,
+		url("images/sprite-left.png") 0 50% no-repeat / 46px 10px,
+		url("images/sprite-right.png") 100% 50% no-repeat / 46px 10px,
+		url("images/sprite-center.png") 50% 50% no-repeat / 100% 10px
+	;
+}

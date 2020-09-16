@@ -1,0 +1,27 @@
+header {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+}
+
+nav ul {
+	display: flex;
+	/*gap: 20px;*/
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav li + li {
+	margin-left: 30px;
+}
+
+nav a {
+	display: block;
+	padding: 10px;
+	border: 1px solid #000;
+}
+
+.main-nav {
+	justify-self: center;
+}

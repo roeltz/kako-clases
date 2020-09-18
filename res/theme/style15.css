@@ -1,0 +1,94 @@
+.box {
+	width: 200px;
+	height: 50px;
+	border: 1px solid #000;
+	border-width: 1px;
+	border-style: outset;
+	border-color: #000;
+	border-radius: 10px 10px 0 0;
+}
+
+.arrow {
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: #000;
+	border-right-color: red;
+	border-top-color: green;
+	border-left-color: blue;
+}
+
+.tooltip {
+	--color: #ecec94;
+	--size: 10px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	padding: 10px;
+	background: rgba(255, 255, 0, 0.5);
+	/*box-shadow: 5px 5px 0 #000;*/
+	filter: blur(2px);
+	/*backdrop-filter: blur(15px);*/
+}
+
+.tooltip::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: calc(var(--size) * -2);
+	/*bottom: 100%;*/
+	left: 20px;
+	width: 0;
+	height: 0;
+	border: var(--size) solid transparent;
+	border-bottom-color: var(--color);
+}
+
+.square {
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	background: gray url("images/logo-chuzos.png") no-repeat 50% 50% / contain;
+	box-shadow:
+		0 1px 2px rgba(0,0,0,0.75),
+		0 4px 8px rgba(0,0,0,0.3)
+	;
+}
+
+.square2 {
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	background: gray url("images/logo-chuzos.png") no-repeat 50% 50% / contain;
+	box-shadow:
+		0 5px 10px #000
+	;
+}
+
+.square3 {
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	background: red url("images/logo-chuzos.png") no-repeat 50% 50% / contain;
+	box-shadow:
+		0 0 10px red,
+		0 0 10px red,
+		0 0 10px red
+	;
+}
+
+p {
+	font-size: 40px;
+	color: #fff;
+	text-shadow:
+		1px 1px 0 red,
+		2px 2px 0 red,
+		3px 3px 0 red,
+		4px 4px 0 red,
+		5px 5px 0 red,
+		6px 6px 0 red,
+		7px 7px 0 red,
+		8px 8px 0 red,
+		9px 9px 0 red
+	;
+}

@@ -1,0 +1,70 @@
+.square {
+	width: 100px;
+	height: 150px;
+	background: red url("images/logo-chuzos.png") no-repeat 50% 50% / contain;
+	transform: scaleX(1);
+	transform-origin: 50% 50%;
+}
+
+.d3 {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background: silver;
+	perspective: 1000px;
+}
+
+.d3, .d3 * {
+	transform-style: preserve-3d;
+}
+
+
+.dice {
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	width: 100px;
+	height: 100px;
+	transform: translateZ(120px) rotateX(60deg) rotateZ(60deg) rotateY(45deg);
+	transform-origin: 50% 50% 50px;
+}
+
+.dice > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000;
+	opacity: 0.5;
+}
+
+.dice .a {
+	background: red;
+	transform: rotateY(90deg) rotateZ(-90deg) translateY(-50%) translateZ(-50px);
+}
+
+.dice .b {
+	background: yellow;
+	transform: rotateX(270deg) translateY(-50%) translateZ(-50px);
+}
+
+.dice .c {
+	background: green;
+	transform: rotateX(90deg) translateY(50%) translateZ(-50px);
+}
+
+.dice .d {
+	background: blue;
+	transform: translateZ(100px);
+}
+
+.dice .e {
+	background: pink;
+	transform: rotateX(90deg) rotateY(90deg) translateY(50%) translateZ(50px);
+}
+
+.dice .f {
+	background: purple;
+}

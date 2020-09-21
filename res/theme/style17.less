@@ -1,0 +1,73 @@
+.square {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: red;
+	animation: slide-right 5s linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-fill-mode: both;
+	//animation-delay: 5s;
+}
+
+.stagger-animation(@i, @delay-step) when(@i > 0) {
+	.stagger-animation(@i - 1, @delay-step);
+
+	&:nth-child(@{i}) {
+		animation-delay: @i * @delay-step;
+	}
+}
+
+.square {
+	.stagger-animation(10, 1s);
+}
+
+/*
+.square:nth-child(1) {
+	animation-duration: 3s;
+	animation-delay: 200ms;
+}
+.square:nth-child(2) {
+	animation-duration: 2.5s;
+	animation-delay: 850ms;
+}
+.square:nth-child(3) {
+	animation-duration: 3.1s;
+	animation-delay: 1500ms;
+}
+.square:nth-child(4) {
+	animation-duration: 4.1s;
+	animation-delay: 2000ms;
+}
+.square:nth-child(5) {
+	animation-duration: 1.8s;
+	animation-delay: 2350ms;
+}
+*/
+
+p {
+	animation: text-color 3s infinite alternate;
+}
+
+@keyframes text-color {
+	100% {
+		color: #fff;
+		background-color: #000;
+	}
+}
+
+
+@keyframes slide-right {
+	0% {
+		//left: 0;
+		opacity: 0;
+		transform: translateX(0);
+	}
+	100% {
+		//left: 100vw;
+		//height: 50px;
+		border: 5px solid black;
+		transform: translateX(100vw) scale(0.5);
+		background: green;
+	}
+}

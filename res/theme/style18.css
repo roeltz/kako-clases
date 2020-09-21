@@ -1,0 +1,142 @@
+@property --diameter {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+html {
+  background: #000;
+}
+div {
+  --diameter: 10px;
+  width: var(--diameter);
+  height: var(--diameter);
+  border-radius: 50%;
+}
+canvas {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.sun {
+  --diameter: 100px;
+  position: fixed;
+  top: calc(var(--mouse-y) * 100vw - var(--diameter) / 2);
+  left: calc(var(--mouse-x) * 100vh - var(--diameter) / 2);
+  width: var(--diameter);
+  height: var(--diameter);
+  background: #fcfcf4;
+  box-shadow: 0 0 30px #ffffd7;
+  -webkit-animation: pulse 10s infinite alternate;
+          animation: pulse 10s infinite alternate;
+}
+.planet,
+.moon {
+  position: absolute;
+  top: calc(50% - var(--diameter) / 2);
+  left: calc(50% - var(--diameter) / 2);
+  -webkit-transform-origin: calc(-1 * var(--orbit-radius)) 50%;
+          transform-origin: calc(-1 * var(--orbit-radius)) 50%;
+  -webkit-transform: translateX(var(--orbit-radius));
+          transform: translateX(var(--orbit-radius));
+  -webkit-animation: orbit 5s infinite linear;
+          animation: orbit 5s infinite linear;
+}
+.mercury {
+  --orbit-radius: 60px;
+  background-color: gray;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+}
+.venus {
+  --orbit-radius: 80px;
+  background-color: #ffe18e;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+.earth {
+  --orbit-radius: 100px;
+  background-color: blue;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+}
+.moon {
+  --orbit-radius: 15px;
+  --diameter: 5px;
+  background-color: silver;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+.mars {
+  --orbit-radius: 120px;
+  background-color: red;
+  -webkit-animation-duration: 14s;
+          animation-duration: 14s;
+}
+.jupiter {
+  --diameter: 20px;
+  --orbit-radius: 140px;
+  background-color: #fc9520;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+}
+.saturn {
+  --orbit-radius: 160px;
+  background-color: #fcdcb8;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+}
+.saturn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: -4px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.uranus {
+  --orbit-radius: 180px;
+  background-color: #62d3ff;
+  -webkit-animation-duration: 40s;
+          animation-duration: 40s;
+}
+.neptune {
+  --orbit-radius: 200px;
+  background-color: #2068ee;
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+.pluto {
+  --orbit-radius: 220px;
+  background-color: #ffc4ad;
+  -webkit-animation-duration: 120s;
+          animation-duration: 120s;
+}
+@-webkit-keyframes orbit {
+  100% {
+    -webkit-transform: translateX(var(--orbit-radius)) rotate(1turn);
+            transform: translateX(var(--orbit-radius)) rotate(1turn);
+  }
+}
+@keyframes orbit {
+  100% {
+    -webkit-transform: translateX(var(--orbit-radius)) rotate(1turn);
+            transform: translateX(var(--orbit-radius)) rotate(1turn);
+  }
+}
+@-webkit-keyframes pulse {
+  100% {
+    background: red;
+    --diameter: 200px;
+  }
+}
+@keyframes pulse {
+  100% {
+    background: red;
+    --diameter: 200px;
+  }
+}

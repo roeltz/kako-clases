@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="res/theme/style18.css">
+</head>
+<body>
+	<main>
+		<div class="sun">
+			<div class="planet mercury"></div>
+			<div class="planet venus"></div>
+			<div class="planet earth">
+				<div class="moon"></div>
+			</div>
+			<div class="planet mars" name="mars"></div>
+			<div class="planet jupiter"></div>
+			<div class="planet saturn"></div>
+			<div class="planet uranus"></div>
+			<div class="planet neptune"></div>
+			<div class="planet pluto"></div>
+		</div>
+		<canvas width="200" height="200"></canvas>
+	</main>
+	<script>
+		/*
+		navigator.getUserMedia({video: true, audio: true});
+		
+		document.querySelector("title").textContent = "Hola Mundo!";
+		document.title = "Holñasd";
+
+		document.body;
+		document.getElementById("123")
+		document.getElementsByTagName("div");
+		document.getElementsByName("mars");
+
+		document.querySelector("body");
+		*/
+
+		let canvas = document.querySelector("canvas");
+		let context = canvas.getContext("2d");
+
+		context.fillStyle = "red";
+		context.fillRect(0, 0, 50, 50);
+
+		document.addEventListener("mousemove", e => {
+			document.body.style.setProperty("--mouse-x", e.clientX / window.innerWidth);
+			document.body.style.setProperty("--mouse-y", e.clientY / window.innerHeight);
+
+			context.fillRect(e.clientX, e.clientY, 1, 1);
+		});
+
+/*
+		CSS.registerProperty({
+			name: "--diameter",
+			syntax: "<length>",
+			inherits: true,
+			initialValue: "0px"
+		});
+		*/
+	</script>
+</body>
+</html>

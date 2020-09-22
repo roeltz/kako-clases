@@ -1,0 +1,40 @@
+html {
+	background: black;
+	overflow: hidden;
+}
+
+main {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.snowflake {
+	--fall-duration: 10s;
+	--swing-duration: 1s;
+
+	animation:
+		fall var(--fall-duration) linear infinite
+	;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 2px;
+		height: 2px;
+		background: white;
+		border-radius: 50%;
+		animation: swing var(--swing-duration) ease-in-out infinite alternate;
+	}
+}
+
+@keyframes fall {
+	100% {
+		transform: translateY(100vh);
+	}
+}
+
+@keyframes swing {
+	100% {
+		transform: translateX(50px);
+	}
+}

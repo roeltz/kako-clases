@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+	<main>
+		<button style="-webkit-appearance: none;">Click me!</button>
+	</main>
+	<script>
+		let b = document.querySelector("button");
+
+		b.addEventListener("click", e => {
+			b.animate([
+				{
+					"backgroundColor": "#ffffff",
+				},
+				{
+					transform: "scale(2) translateX(200%)",
+					"backgroundColor": "#ff0000",
+					filter: "blur(20px)"
+				}
+			], {
+				duration: 3000
+			});
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.square {
+	width: 80vw;
+	height: 100px;
+	background: red url("images/logo-chuzos.png");
+	transition: width 3s, height 6s, background-color 12s, transform 5s, background-position 8s;
+	transition-timing-function: cubic-bezier(.54,1.91,.23,-0.61);
+
+	&.big {
+		height: 200px;
+		background-color: green;
+		background-position: -1000px 0;
+		transform: rotate(135deg);
+	}
+}
+
+button {
+	background: silver;
+	color: #000;
+	transition: 3s;
+
+	&:hover {
+		background: gray;
+		color: #fff;
+	}
+}

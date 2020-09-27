@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="view-example-1">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="res/theme/style.css">
+</head>
+<body>
+	<main>
+		<form class="dialog" method="POST" action="script.php" enctype="multipart/form-data">
+			<header>
+				<h1>Bienvenido al TaToko</h1>
+				<p>
+					En este formulario podrás registrar un nuevo usuario
+					para formar parte del mejor sitio web del mundo.
+				</p>
+			</header>
+			<fieldset>
+				<legend>Datos Personales</legend>
+
+				<div class="field-row">
+					<div class="field">
+						<label for="nombre-usuario">Nombre</label>
+						<input id="nombre-usuario" type="text" name="nombre" placeholder="Tu nombre" required>
+						<p class="hint">
+							Tu nombre debe ser real y usar hasta 100 caracteres
+						</p>
+					</div>
+					<div class="field">
+						<label for="apellido-usuario">Apellido</label>
+						<input id="apellido-usuario" type="text" name="apellido" required>
+						<p class="hint">
+							Ingresa tus dos apellidos
+						</p>
+					</div>
+				</div>
+				<div class="field-row">
+					<div class="field">
+						<label for="cedula-usuario">Cédula</label>
+						<input id="cedula-usuario" type="text" name="cedula" required pattern="^(V|E)[0-9]{1,8}$">
+						<p class="hint">
+							La cédula debe empezar con V o E y tener hasta 8 dígitos sin puntos
+						</p>
+					</div>
+					<div class="field">
+						<label for="fecha-usuario">Fecha de nacimiento</label>
+						<input id="fecha-usuario" type="date" name="fechaNacimiento" required>
+						<p class="hint">
+							Tu fecha de nacimiento
+						</p>
+					</div>
+				</div>
+				<div class="field">
+					<label>Nacionalidad</label>
+					<p class="hint">
+						Indica tu nacionalidad
+					</p>
+					<select name="nacionalidad">
+						<option value="">Selecciona</option>
+						<option value="V">Venezolano</option>
+						<option value="E">Extranjero</option>
+					</select>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Contacto</legend>
+
+				<div class="field-row">
+					<div class="field">
+						<label>E-mail</label>
+						<input type="email" name="email">
+					</div>
+					<div class="field">
+						<label>Teléfono</label>
+						<input type="tel" name="email">
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Más información</legend>
+
+				<div class="field">
+					<label>Acerca de ti</label>
+					<textarea name="bio" rows="3"></textarea>
+				</div>
+				<div class="field">
+					<label>Archivo de imagen</label>
+					<p class="hint">
+						Una una foto que no sea vulgar
+					</p>
+					<input type="file" name="avatar">
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Intereses</legend>
+
+				<div class="field list-field">
+					<label>Recibir newsletter</label>
+					
+					<ul>
+						<li>
+							<input type="radio" name="newsletter" id="newsletter-si" value="1" required>
+							<label for="newsletter-si">Sí</label>
+						</li>
+						<li>
+							<input type="radio" name="newsletter" id="newsletter-no" value="">
+							<label for="newsletter-no">No</label>
+						</li>
+					</ul>
+				</div>
+
+				<div class="field">
+					<label>Recibir newsletter</label>
+					
+					<ul class="toggle-input">
+						<li>
+							<input type="radio" name="newsletter" id="newsletter-si-2" value="1" required>
+							<label for="newsletter-si-2" tabindex="0">Sí</label>
+						</li>
+						<li>
+							<input type="radio" name="newsletter" id="newsletter-no-2" value="">
+							<label for="newsletter-no-2" tabindex="0">No</label>
+						</li>
+						<li>
+							<input type="radio" name="newsletter" id="newsletter-no-3" value="">
+							<label for="newsletter-no-3" tabindex="0">Tal vez</label>
+						</li>
+					</ul>
+				</div>
+
+				<div class="field list-field">
+					<label>Intereses</label>
+					<ul>
+						<li>
+							<input id="i1" type="checkbox" name="interests[]" value="manga">
+							<label for="i1">Manga</label>
+						</li>
+						<li>
+							<input id="i2" type="checkbox" name="interests[]" value="libros">
+							<label for="i2">Libros</label>
+						</li>
+						<li>
+							<input id="i3" type="checkbox" name="interests[]" value="musica">
+							<label for="i3">Música</label>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+			<footer>
+				<button>Registrar</button>
+				<button type="reset">Cancelar</button>
+			</footer>
+		</form>
+	</main>
+	<script>
+		document.addEventListener("keypress", e => {
+			if (e.target.matches("label[for]")) {
+				e.target.click();
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+.dialog {
+	
+	@media @desktop {
+		padding: 20px;
+		margin: 10px;
+		border: 1px solid @border-color-light;
+		border-radius: 10px;
+		box-shadow: 0 5px 20px fade(#000, 20);
+	}
+
+	@media @mobile {
+		padding: 10px;
+	}
+
+	> header {
+		margin: 0 0 30px;
+		text-align: center;
+
+		h1 {
+			margin: 0;
+		}
+
+		p {
+			max-width: 25em;
+			margin: 10px auto 0;
+		}
+	}
+
+	.field {
+
+		> label:first-child {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="date"],
+		select,
+		textarea {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 5px;
+			border: 1px solid @border-color;
+			border-radius: 3px;
+			outline: none;
+
+			&:focus {
+				border-color: darken(@active-color, 40%);
+				background-color: lighten(@active-color, 20%);
+			}
+
+			&.changed {
+
+				&:invalid {
+					background-color: red;
+				}	
+			}
+		}
+
+		input[type="file"] {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 5px;
+			outline: none;
+
+			&:focus {
+				background-color: lighten(@active-color, 20%);
+			}
+		}
+
+		.hint {
+			margin: 0 0 5px;
+			color: #666;
+			font-size: 90%;
+		}
+	}
+
+	.list-field {
+
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			
+			@media @desktop {
+				display: grid;
+				grid-gap: 0 20px;
+				grid-template-columns: repeat(2, max-content);
+			}
+		}
+	}
+
+	:not(legend) + .field {
+		margin-top: 20px;
+	}
+
+	.field-row {
+
+		@media @desktop {
+			display: flex;
+		}
+
+		> .field {
+			margin: 0;
+			
+			@media @desktop {
+				flex: 1 1;
+			}
+		}
+
+		> .field + .field {
+			
+			@media @desktop {
+				margin-left: 20px;
+			}
+		}
+	}
+
+	:not(legend) + .field-row {
+		margin-top: 20px;
+	}
+
+	fieldset {
+		padding: 0;
+		margin: 0;
+		border: none;
+
+		legend {
+			display: block;
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0;
+			margin: 0 0 20px;
+			border-bottom: 1px solid @border-color-light;
+			font-size: 120%;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+
+	:not(header) + fieldset {
+		margin-top: 30px;
+	}
+
+	> footer {
+		padding: 20px;
+		margin: 30px -20px -20px;
+		background: #eee;
+		border-radius: 0 0 10px 10px;
+		text-align: center;
+
+		button {
+			padding: 8px 30px;
+			border: none;
+			border-radius: 5px;
+			background: darken(@active-color, 20%);
+			font-weight: bold;
+			text-transform: uppercase;
+			box-shadow: 0 1px 3px fade(#000, 60);
+			transition:
+				background-color 400ms,
+				top 200ms
+			;
+			cursor: pointer;
+
+			&:hover {
+				background: darken(@active-color, 5%);
+			}
+
+			&:focus {
+				background: darken(@active-color, 30%);
+			}
+
+			&:active {
+				position: relative;
+				top: 2px;
+				background: darken(@active-color, 50%);
+			}
+		}
+	}
+}
+
+.dialog-centered(@width) {
+	max-width: @width;
+	margin-left: auto;
+	margin-right: auto;
+}

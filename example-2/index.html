@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="view-example-2">
+<head>
+	<meta charset="utf-8">
+	<title>Starbucks</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="res/theme/style.css">
+</head>
+<body>
+	<header>
+		<h1>Starbucks</h1>
+		<nav class="main-nav">
+			<ul>
+				<li><a href="">Menú</a></li>
+				<li><a href="" class="current">Trending</a></li>
+				<li><a href="">Rewards</a></li>
+				<li><a href="">Gift Cards</a></li>
+				<li><a href="">Responsibility</a></li>
+				<li><a href="">About</a></li>
+			</ul>
+		</nav>
+		<div class="wrapper">
+			<form class="search-form" method="GET" action="search.php">
+				<div class="field">
+					<label for="search-input">Search</label>
+					<input type="search" name="" id="search-input" placeholder="Search">
+				</div>
+				<button>Search</button>
+			</form>
+			<nav class="user-nav">
+				<ul>
+					<li><a href="" data-count="1">Shopping Cart</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<section class="selected-product">
+			<figure class="product-image">
+				<img src="res/images/product.png" alt="">
+			</figure>
+			<header>
+				<h1>Caramel Ribbon</h1>
+				<p class="price">$39.00</p>
+				<p class="score" data-score="4">4 stars</p>
+			</header>
+			<section class="description">
+				<h1>Description</h1>
+
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam deleniti tempore eum vitae voluptatem recusandae dolorem, earum animi, neque praesentium pariatur sapiente dolore officia exercitationem ipsa hic! Sapiente, alias perspiciatis!
+				</p>
+			</section>
+			<section class="complements">
+				<h1>Serve with</h1>
+
+				<ul>
+					<li class="complement-item" data-count="2">
+						<figure>
+							<img src="res/images/complements/donut.svg" alt="Donut">
+						</figure>
+						<h2>Donut</h2>
+					</li>
+					<li class="complement-item" data-count="0">
+						<figure>
+							<img src="res/images/complements/yogurt.svg" alt="Yogurt">
+						</figure>
+						<h2>Yogurt</h2>
+					</li>
+					<li class="complement-item" data-count="3">
+						<figure>
+							<img src="res/images/complements/cookies.svg" alt="Cookies">
+						</figure>
+						<h2>Cookies</h2>
+					</li>
+				</ul>
+			</section>
+			<form method="POST" action="add-to-cart.php">
+				<div class="field">
+					<label for="">Quantity</label>
+					<span class="spinner">
+						<input type="number" value="1" min="1" max="10" step="1">
+						<button type="button" class="less">Less</button>
+						<button type="button" class="more">More</button>
+					</span>
+				</div>
+				<footer>
+					<button>Add to cart</button>
+				</footer>
+			</form>
+		</section>
+		<section class="product-list">
+			<h1>Product List</h1>
+
+			<ul>
+				<li class="product-item">
+					<figure class="product-image">
+						<img src="res/images/product.png" alt="">
+					</figure>
+					<h2>Product 1</h2>
+					<p class="score">4.6</p>
+				</li>
+				<li class="product-item">
+					<figure class="product-image">
+						<img src="res/images/product.png" alt="">
+					</figure>
+					<h2>Product 2</h2>
+					<p class="score">4.5</p>
+				</li>
+				<li class="product-item">
+					<figure class="product-image">
+						<img src="res/images/product.png" alt="">
+					</figure>
+					<h2>Product 3</h2>
+					<p class="score">5.0</p>
+				</li>
+			</ul>
+		</section>
+	</main>
+</body>
+</html>

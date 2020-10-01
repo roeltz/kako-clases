@@ -1,0 +1,23 @@
+.counter(@size: 30px, @offset: 15px) {
+
+	&:not([data-count="0"]) {
+		position: relative;
+
+		&::before {
+			content: attr(data-count);
+			display: block;
+			position: absolute;
+			top: -@offset;
+			right: -@offset;
+			width: @size;
+			height: @size;
+			line-height: @size;
+			border-radius: 50%;
+			background: @main-color;
+			color: #fff;
+			font-size: @size / 2;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+}

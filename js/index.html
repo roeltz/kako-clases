@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p class="cosa">
+		<!-- Hola -->
+		Hola hola
+		<span></span>
+	</p>
+<script>
+
+var a = 1;
+var b = "Hola";
+var b2 = 'Hola';
+var b3 = `Hola ${a}`;
+var c = true;
+var d = 10.5;
+var e = new Date(1987, 6, 30);
+var g = /^A/;
+var h = [1, 2, 3];
+var i = {
+	nombre: "Leonardo",
+	apellido: "Rothe",
+	edad: 33,
+	cedula: "CC1034313289"
+};
+var i2 = {
+	x: 0,
+	y: 0,
+	z: 0
+};
+var i3 = {
+	nombre: "Chuzo",
+	material: "Acero",
+	precio: 1000
+};
+function suma(a, b) {
+	return a + b;
+}
+var j = suma;
+var j2 = function(a, b) {
+	return a * b;
+};
+
+if (true) {
+	let j2 = 123;
+
+	for (let i = 0; i < 10; i++) {
+
+	}
+}
+
+const PI = 3.1415;
+const USER = {id: 123, name: "Ronald"};
+
+var a1 = [1, 2, 3, 4, 5];
+var a2 = a1;
+
+a1.propiedadNueva = 546;
+a1.propiedadVieja = undefined;
+delete a1.propiedadVieja;
+a2.push(4, 5);
+
+var x = {};
+
+// Valores falsos
+/*
+null
+undefined
+false
+""
+0
+NaN
+*/
+
+// Valores verdaderos
+
+var a = undefined;
+
+if (a === null) {
+
+}
+
+
+if (!String.prototype.matchAll) {
+	String.prototype.matchAll = function() {
+
+	};
+	String.prototype.match = function(a, b, c) {
+
+	};
+}
+
+Array.prototype.mapReduce = function(a, b, c) {
+
+};
+
+function Persona(nombre) {
+	this.nombre = nombre;
+	this.getApellido = function() {
+
+	};
+}
+
+Persona.getPersona = function() {
+
+};
+
+Persona.prototype.getNombre = function () {
+	return this.nombre;
+};
+
+var a = new Persona("Paulo");
+var b = new Persona("Mary");
+
+Persona.getPersona();
+
+a.getNombre === b.getNombre // true
+a.getApellido === b.getApellido // false
+
+function suma(a, b) {
+	return a + b;
+}
+
+var s = suma(1, 2);
+var p = new Persona("Old");
+
+
+class Persona {
+
+	constructor(nombre) {
+		this.nombre = nombre;
+	}
+
+	static getPersona() {
+
+	}
+
+	getNombre() {
+
+	}
+}
+
+class Empleado extends Persona {
+	
+}
+
+function cosa() {
+	//hola = 123;
+	alert(hola);
+}
+
+Persona.getPersona();
+
+let p = new Persona();
+p.getNombre();
+
+alert()
+confirm()
+prompt()
+
+</script>
+</body>
+</html>

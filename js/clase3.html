@@ -23,6 +23,19 @@
 			<button>Reintentar</button>
 		</div>
 	</div>
+	<script type="application/x-kak-html" id="product-template">
+		<article class="product">
+			<figure>
+				<img src="{image}">
+			</figure>
+			<header>
+				<h1>{name}</h1>
+			</header>
+			<section>
+				<p>{description}</p>
+			</section>
+		</article>
+	</script>
 	<script>
 		function request(url, callback, plaintext) {
 			let xhr = new XMLHttpRequest();
@@ -73,53 +86,82 @@
 		}
 
 		function interpolateKakHtml(templateText, data) {
-			let fragment = document.createDocumentFragment();
+			let fragment = document.createElement("div");
 			fragment.innerHTML = templateText.replace(/\{(\w+)\}/gm, (match, property) => data[property]);
-			return fragment;
+			return fragment.firstElementChild;
+		}
+
+		function renderProducts(productTemplateText, err, productData) {
+			if (err) {
+					insertErrorNotice("No se pudo cargar la lista de productos", productList, () => loadProducts(productTemplateText));
+			} else {
+				productList.innerHTML = "";
+	
+				productData.forEach(product => {
+					/*
+					let productElement = productTemplate.cloneNode(true);
+					let image = productElement.querySelector("figure img");
+					let name = productElement.querySelector("h1");
+					let description = productElement.querySelector("section p");
+	
+					image.src = product.image;
+					//image.setAttribute("src", product.image);
+					//name.innerHTML
+					//name.innerText
+					name.textContent = product.name;
+					description.textContent = product.description;
+					*/
+					let productElement = interpolateKakHtml(productTemplateText, product);
+	
+					// Insertar al principio
+					if (productList.childNodes.length) {
+						productList.insertBefore(productElement, productList.firstChild);
+					} else {
+						productList.appendChild(productElement);
+					}
+				});
+			}
 		}
 		
 		function loadProducts(productTemplateText) {
 			request("clase3.json", (err, productData) => {
-				if (err) {
-					insertErrorNotice("No se pudo cargar la lista de productos", productList, loadProducts);
-				} else {
-					productList.innerHTML = "";
-
-					productData.forEach(product => {
-						/*
-						let productElement = productTemplate.cloneNode(true);
-						let image = productElement.querySelector("figure img");
-						let name = productElement.querySelector("h1");
-						let description = productElement.querySelector("section p");
-	
-						image.src = product.image;
-						//image.setAttribute("src", product.image);
-						//name.innerHTML
-						//name.innerText
-						name.textContent = product.name;
-						description.textContent = product.description;
-						*/
-						let productElement = interpolateKakHtml(productTemplateText, product);
-
-						// Insertar al principio
-						if (productList.childNodes.length) {
-							productList.insertBefore(productElement, productList.firstChild);
-						} else {
-							productList.appendChild(productElement);
-						}
-					});
-				}
+				renderProducts(productTemplateText, err, productData);
 			});
 		}
 
+		function loadProductsWithPromise(productTemplateText) {
+			let promise = fetch("clase3.json");
+
+			promise
+				.then(response => response.json())
+				.then(productData => renderProducts(productTemplateText, false, productData))
+				.catch(err => renderProducts(productTemplateText, true))
+			;
+		}
+
+		async function loadProductsWithPromiseAsync(productTemplateText) {
+			try {
+				let response = await fetch("clase3.json");
+				let productData = await response.json();
+				renderProducts(productTemplateText, false, productData);
+			} catch (ex) {
+				renderProducts(productTemplateText, true)
+			}
+		}
+
 		function init() {
-			request("clase3.kakhtml", (err, templateText) => {
+			// Cargar plantilla desde afuera
+			/*request("clase3.kakhtml", (err, templateText) => {
 				if (err) {
 
 				} else {
 					loadProducts(templateText);
 				}
 			}, true);
+			*/
+			// ...ó cargar plantilla desde un elemento <script>
+			let productTemplateText = document.querySelector("#product-template").innerHTML;
+			loadProductsWithPromiseAsync(productTemplateText);
 		}
 
 		init();

@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.templates {
+			display: none;
+		}
+
+		.product {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<section class="product-list"></section>
+	</main>
+	<div class="templates">
+		<div class="error-notice">
+			<p></p>
+			<button>Reintentar</button>
+		</div>
+	</div>
+	<script>
+		function request(url, callback, plaintext) {
+			let xhr = new XMLHttpRequest();
+			xhr.open("GET", url);
+			xhr.onreadystatechange = e => {
+				if (xhr.readyState === xhr.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.responseText;
+
+						if (!plaintext) {
+							data = JSON.parse(data);
+						}
+
+						callback(false, data);
+					} else {
+						callback(true);
+					}
+				}
+			};
+			xhr.send();
+		}
+
+		let templates = document.querySelector(".templates");
+		let productTemplate = templates.querySelector(".product");
+		let productList = document.querySelector(".product-list");
+		let errorTemplate = templates.querySelector(".error-notice");
+
+		//templates.parentNode.removeChild(templates);
+		templates.remove();
+
+		function insertErrorNotice(message, container, retryCallback) {
+			let errorElement = errorTemplate.cloneNode(true);
+			let errorMessage = errorElement.querySelector("p");
+			let retryButton = errorElement.querySelector("button");
+			
+			errorMessage.textContent = message;
+
+			retryButton.addEventListener("click", e => {
+				//e.preventDefault();
+				//e.stopPropagation();
+				//e.stopImmediatePropagation();
+				if (confirm("¿Está seguro que desea reintentar?")) {
+					retryCallback();
+				}
+			}, true);
+
+			container.appendChild(errorElement);
+		}
+
+		function interpolateKakHtml(templateText, data) {
+			let fragment = document.createDocumentFragment();
+			fragment.innerHTML = templateText.replace(/\{(\w+)\}/gm, (match, property) => data[property]);
+			return fragment;
+		}
+		
+		function loadProducts(productTemplateText) {
+			request("clase3.json", (err, productData) => {
+				if (err) {
+					insertErrorNotice("No se pudo cargar la lista de productos", productList, loadProducts);
+				} else {
+					productList.innerHTML = "";
+
+					productData.forEach(product => {
+						/*
+						let productElement = productTemplate.cloneNode(true);
+						let image = productElement.querySelector("figure img");
+						let name = productElement.querySelector("h1");
+						let description = productElement.querySelector("section p");
+	
+						image.src = product.image;
+						//image.setAttribute("src", product.image);
+						//name.innerHTML
+						//name.innerText
+						name.textContent = product.name;
+						description.textContent = product.description;
+						*/
+						let productElement = interpolateKakHtml(productTemplateText, product);
+
+						// Insertar al principio
+						if (productList.childNodes.length) {
+							productList.insertBefore(productElement, productList.firstChild);
+						} else {
+							productList.appendChild(productElement);
+						}
+					});
+				}
+			});
+		}
+
+		function init() {
+			request("clase3.kakhtml", (err, templateText) => {
+				if (err) {
+
+				} else {
+					loadProducts(templateText);
+				}
+			}, true);
+		}
+
+		init();
+	</script>
+</body>
+</html>

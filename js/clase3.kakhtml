@@ -1,0 +1,11 @@
+<article class="product">
+	<figure>
+		<img src="{image}">
+	</figure>
+	<header>
+		<h1>{name}</h1>
+	</header>
+	<section>
+		<p>{description}</p>
+	</section>
+</article>

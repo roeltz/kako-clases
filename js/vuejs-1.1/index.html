@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+	<main class="calculator">
+		<div class="field">
+			A = <input type="number" v-model.number="operandoA">
+		</div>
+		<div class="field">
+			B = <input type="number" v-model.number="operandoB">
+		</div>
+		<div class="field" v-if="!error">
+			= {{ resultado }}
+		</div>
+		<div class="field" v-else>
+			Error: {{ error }}
+		</div>
+		<footer>
+			<button @click="sumar">Sumar</button>
+			<button @click="restar">Restar</button>
+			<button @click="multiplicar">Multiplicar</button>
+			<button @click="dividir">Dividir</button>
+		</footer>
+	</main>
+	<script src="vue.min.js"></script>
+	<script>
+		let app = new Vue({
+			el: "main",
+			data() {
+				return {
+					operandoA: null,
+					operandoB: null,
+					resultado: null,
+					error: false
+				};
+			},
+			methods: {
+				sumar() {
+					this.error = false;
+					this.resultado = this.operandoA + this.operandoB;
+				},
+				restar() {
+					this.error = false;
+					this.resultado = this.operandoA - this.operandoB;
+				},
+				multiplicar() {
+					this.error = false;
+					this.resultado = this.operandoA * this.operandoB;
+				},
+				dividir() {
+					if (this.operandoB === 0) {
+						this.error = "División entre cero";
+					} else {
+						this.error = false;
+						this.resultado = this.operandoA / this.operandoB;
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

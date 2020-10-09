@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<main>
+		<h1>{{ nombre }} <span v-if="esModerador">(Moderador)</span></h1>
+		<p>{{ bio }}</p>
+		<dl>
+			<dt>Corazones</dt>
+			<dd>{{ corazones === 1 ? "1 corazón" : `${corazones} corazones` }} <button @click="incrementarCorazones">+1</button></dd>
+			<dt>Dorados</dt>
+			<dd>{{ dorados }} <button @click="incrementarDorados">+1</button></dd>
+		</dl>
+		<h2>Últimos posts</h2>
+		<article v-for="p in posts">
+			<h1>#{{ p.id }} - {{ p.titulo }}</h1>
+			<p>{{ p.corazones }}</p>
+			<button @click="incrementarCorazonesPost(p)">+1</button>
+			{{ corazones }}
+		</article>
+		<form @submit.prevent="iniciarSesion">
+			<div class="field">
+				<label for="">E-mail ({{ usuarioLogin.email }})</label>
+				<input type="email" v-model="usuarioLogin.email">
+			</div>
+			<div class="field">
+				<label for="">Contraseña ({{ usuarioLogin.password }})</label>
+				<input type="password" v-model="usuarioLogin.password">
+			</div>
+			<footer>
+				<button>Ingresar</button>
+			</footer>
+		</form>
+	</main>
+	<script src="vue.min.js"></script>
+	<script>
+		let app = new Vue({
+			el: "main",
+			data() {
+				return {
+					nombre: "Old",
+					bio: "Se la pasa tratando de hacer chanchullos en el Kakoto",
+					corazones: 0,
+					dorados: 20,
+					esModerador: false,
+					posts: [
+						{id: 1, titulo: "Old es Moderador", corazones: 0},
+						{id: 2, titulo: "Qué bolas, Roeltz le dijo Molcar a Paulo", corazones: 0},
+						{id: 3, titulo: "A Ronald no le gusta que Kirara copie y pegue de interné", corazones: 0}
+					],
+					usuarioLogin: {
+						email: null,
+						password: null
+					}
+				};
+			},
+			methods: {
+				cualquierCosa() {
+
+				},
+				incrementarCorazones() {
+					this.corazones++;
+				},
+				incrementarDorados() {
+					this.dorados++;
+				},
+				incrementarCorazonesPost(post) {
+					post.corazones++;
+				},
+				async iniciarSesion(e) {
+					fetch("login.php", {
+						method: "post",
+						body: JSON.stringify(this.usuarioLogin)
+					});
+				}
+			}
+		});
+	</script>
+</body>
+</html>

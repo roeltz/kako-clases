@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<main>
+		<img src="loading.png" v-if="isLoading">
+		<template v-else>
+			<article v-for="p in pokemons">
+				<h1>{{ p.name }}</h1>
+				<figure>
+					<img :src="p.sprites.front_default">
+				</figure>
+				<h2>Tipos</h2>
+				<ul>
+					<li v-for="t in p.types">
+						{{ t.type.name }}
+					</li>
+				</ul>
+			</article>
+		</template>
+	</main>
+	<script src="vue.min.js"></script>
+	<script>
+		let app = new Vue({
+			el: "main",
+			data() {
+				return {
+					pokemons: [],
+					isLoading: true
+				};
+			},
+			async created() {
+				let data = await (await fetch("https://pokeapi.co/api/v2/pokemon?limit=20")).json();
+				let pokemons = [];
+
+				for (p of data.results) {
+					let pokemon = await (await fetch(p.url)).json();
+					pokemons.push(pokemon);
+				}
+
+				this.pokemons = pokemons;
+				this.isLoading = false;
+			}
+		});
+	</script>
+</body>
+</html>

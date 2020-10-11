@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="vue.min.js"></script>
+</head>
+<body>
+	<main>
+		<section>
+			<h1>Productos recomendados</h1>
+			<kak-product v-for="p in products" :product="p"></kak-product>
+		</section>
+		<section>
+			<h1>Productos en oferta</h1>
+			<kak-product v-for="p in offers" :product="p"></kak-product>
+		</section>
+	</main>
+	<script type="text/x-template" id="kak-product">
+		<article>
+			<h1>{{ product.name }}</h1>
+			<figure>
+				<img :src="product.image">
+			</figure>
+			<p>{{ product.price }}</p>
+			<p>{{ product.description }}</p>
+			<button @click="buy">Comprar</button>
+		</article>
+	</script>
+	<script>
+		/*
+		Vue.component("kak-product", {
+			template: "#kak-product",
+			props: {
+				product: Object
+			},
+			methods: {
+				buy() {
+					alert(`${this.product.name} comprado!`);
+				}
+			}
+		});
+		*/
+
+		new Vue({
+			el: "main",
+			data() {
+				return {
+					products: [
+						{
+							"id": 1,
+							"image": "http://placecorgi.com/250",
+							"name": "Corgi",
+							"description": "Good boy"
+						},
+						{
+							"id": 2,
+							"image": "http://placecorgi.com/250",
+							"name": "Corgi Plus",
+							"description": "Better boy"
+						},
+						{
+							"id": 3,
+							"image": "http://placecorgi.com/250",
+							"name": "Corgi Pro",
+							"description": "Best boy"
+						}
+					],
+					offers: [
+						{
+							"id": 4,
+							"image": "http://placecorgi.com/350",
+							"name": "Corgi Robot",
+							"description": "Electroboy"
+						},
+						{
+							"id": 5,
+							"image": "http://placecorgi.com/450",
+							"name": "Corgi Metafísico",
+							"description": "Drogoboy"
+						}
+					]
+				};
+			},
+			methods: {
+				
+			},
+			components: {
+				"kak-product": {
+					template: "#kak-product",
+					props: {
+						product: Object
+					},
+					methods: {
+						buy() {
+							alert(`${this.product.name} comprado!`);
+						}
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

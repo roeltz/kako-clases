@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="theme/style.css">
+	<script src="scripts/lib/require.js"></script>
+	<script src="scripts/config.js"></script>
+</head>
+<body>
+	<main>
+		<section key="products">
+			<h1>Productos recomendados</h1>
+			<kak-loader key="ploader" :promise="productRequest">
+				<kak-product :key="p.name" v-for="p in products" :product="p"></kak-product>
+			</kak-loader>
+		</section>
+		<section key="offers">
+			<h1>Productos en oferta</h1>
+			<kak-loader key="oloader" :promise="offerRequest">
+				<kak-product :key="p.name" v-for="p in offers" :product="p"></kak-product>
+			</kak-loader>
+		</section>
+	</main>
+	<script src="scripts/main.js"></script>
+</body>
+</html>

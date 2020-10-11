@@ -1,0 +1,5 @@
+<div class="kak-loader">
+	<p v-if="loading">Cargando</p>
+	<p v-else-if="error">Error: {{ error }}</p>
+	<slot v-else></slot>
+</div>

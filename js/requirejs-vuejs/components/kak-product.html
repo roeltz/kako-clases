@@ -1,0 +1,20 @@
+<article class="kak-product">
+	<h1>{{ product.name }}</h1>
+	<figure>
+		<img :src="product.image">
+	</figure>
+	<p>{{ product.price }}</p>
+	<p>{{ product.description }}</p>
+	<button @click="toggleBuyModal">Comprar</button>
+
+	<template v-if="isBuying">
+		<kak-modal @close="toggleBuyModal">
+			<template v-slot:header>
+				<h1>Comprar {{ product.name }}</h1>
+				<p>Compre con confianza y pague con BitCoin</p>
+			</template>
+			<p>¿Está seguro de que quiere comprar {{ product.name }}?</p>
+			<button>Aceptar</button>
+		</kak-modal>
+	</template>
+</article>

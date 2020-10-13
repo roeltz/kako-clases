@@ -1,0 +1,14 @@
+<section class="contact-view">
+	<h1>Contacto</h1>
+	<p>Ésta es la página de contacto. Mentira! Es nuestro newsletter</p>
+	<form @submit.prevent="send">
+		<div class="field">
+			<label>E-mail</label>
+			<input type="email" v-model="email" required>
+		</div>
+		<footer>
+			<button>Suscríbete</button>
+			<a is="router-link" :to="{name: 'tab2'}">Mejor ve al tab 2</a>
+		</footer>
+	</form>
+</section>

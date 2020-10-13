@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.router-link-exact-active {
+			font-weight: bold;
+		}
+
+		main {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: grid;
+			grid-template-rows: auto 1fr;
+		}
+
+		.view {
+			position: relative;
+		}
+
+		.view > * {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			animation: view-enter 800ms;
+			background: white;
+		}
+
+		.view > *.v-leave-active {
+			animation: view-leave 800ms;
+		}
+
+		@keyframes view-enter {
+			0% {
+				opacity: 0;
+				transform: scale(0);
+			}
+		}
+
+		@keyframes view-leave {
+			100% {
+				opacity: 0;
+				transform: scale(1.5);
+			}
+		}
+
+		.contact-view {
+			background: lime;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<header>
+			<h1>Página de ejemplo</h1>
+			<nav>
+				<ul>
+					<li><a is="router-link" :to="{name: 'home'}">Inicio</a></li>
+					<li><a is="router-link" :to="{name: 'contact'}">Contacto</a></li>
+					<li><a is="router-link" :to="{name: 'tab1'}">Tab 1</a></li>
+					<li><a is="router-link" :to="{name: 'tab2'}">Tab 2</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section class="view">
+			<transition>
+				<router-view :key="$route.fullPath"></router-view>
+			</transition>
+		</section>
+	</main>
+	<script src="vue.min.js"></script>
+	<script src="vue-router.js"></script>
+	<script src="require.js"></script>
+	<script>
+		Vue.use(VueRouter);
+
+		function load(name) {
+			return () => {
+				return {
+					component: new Promise((resolve, reject) => {
+						require([`modules/${name}`], def => resolve(def), err => reject(err));
+					})
+				};
+			};
+		}
+
+		let router = new VueRouter({
+			routes: [
+				{
+					path: "/", name: "home", component: load("home"),
+					/*children: [
+						{path: "/tab1", name: "tab1", component: load("tab1")},
+						{path: "/tab2", name: "tab2", component: load("tab2")},
+					]*/
+				},
+				{path: "/contacto", name: "contact", component: load("contact")},
+				{path: "/contacto/tab1", name: "tab1", component: load("tab1"), meta: {loginRequired: true}},
+				{path: "/contacto/tab2", name: "tab2", component: load("tab2"), meta: {loginRequired: true}},
+				{path: "/login", name: "login", component: load("login")},
+			]
+		});
+
+		let appData = {
+			user: null
+		};
+
+		router.beforeEach((to, from, next) => {
+			if (!to.meta.loginRequired || appData.user) {
+				next();
+			} else {
+				next({name: "login"});
+			}
+		});
+
+		router.afterEach((to, from) => {
+			// 
+		});
+
+		new Vue({
+			router,
+			el: "main",
+			data: () => appData,
+			methods: {
+				acceptLoginUser(user) {
+					this.user = user;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

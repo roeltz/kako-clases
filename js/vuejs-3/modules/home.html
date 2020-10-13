@@ -1,0 +1,13 @@
+<section>
+	<h1>Hola Mundo</h1>
+	<p>Ésta es la página de inicio</p>
+	<p>Si quieres escribirnos ve a <a is="router-link" :to="{name: 'contact'}">La página de contacto</a></p>
+
+	<nav>
+		<ul>
+			<li><a is="router-link" :to="{name: 'tab1'}">Tab 1</a></li>
+			<li><a is="router-link" :to="{name: 'tab2'}">Tab 2</a></li>
+		</ul>
+	</nav>
+	<router-view></router-view>
+</section>

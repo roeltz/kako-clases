@@ -1,0 +1,4 @@
+{
+	"home.greeting": "Bonjour le monde!",
+	"home.user-greeting": "Salut, {name}. Bienvenue dans cet exemple."
+}

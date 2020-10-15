@@ -1,0 +1,9 @@
+{
+	"home.greeting": "¡Hola Mundo!",
+	"home.user-greeting": "Hola, {name}. Bienvenido a este ejemplo de Vue.",
+	"home.messages-reminder": "No tienes mensajes nuevos | Tienes 1 mensaje nuevo | Tienes {n} mensajes nuevos",
+	"contact.email-label": "Correo Electrónico",
+	"contact.email-placeholder": "Escribe tu correo",
+	"contact.send": "Enviar",
+	"contact.error": "Error al enviar el formulario"
+}

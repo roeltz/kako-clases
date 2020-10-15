@@ -1,0 +1,13 @@
+<section>
+	<h1>{{ $t("home.greeting") }}</h1>
+	<p>{{ $t("home.user-greeting", {name: user.name}) }}</p>
+	<p>{{ $tc("home.messages-reminder", 20, {n: 20}) }}</p>
+
+	<p><a is="router-link" :to="{name: 'contact'}">Ir a contacto</a></p>
+
+	<footer>
+		<button @click="$root.setLocale('es')">Español</button>
+		<button @click="$root.setLocale('en')">English</button>
+		<button @click="$root.setLocale('fr')">French</button>
+	</footer>
+</section>

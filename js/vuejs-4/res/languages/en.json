@@ -1,0 +1,8 @@
+{
+	"home.greeting": "Hello World!",
+	"home.user-greeting": "Hey, {name}. Welcome to this example.",
+	"contact.email-label": "E-mail",
+	"contact.email-placeholder": "Write your address",
+	"contact.send": "Send",
+	"contact.error": "Error submitting the form"
+}

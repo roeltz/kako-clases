@@ -1,0 +1,9 @@
+<form @submit.prevent="submit">
+	<div class="field">
+		<label for="">{{ $t("contact.email-label") }}</label>
+		<input type="email" name="email" :placeholder="$t('contact.email-placeholder')">
+	</div>
+	<footer>
+		<button>{{ $t("contact.send") }}</button>
+	</footer>
+</form>

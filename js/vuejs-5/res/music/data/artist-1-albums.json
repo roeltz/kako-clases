@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"name": "Issues",
+		"picture": "res/music/files/jpg/album-1.jpg",
+		"releaseYear": 1999
+	},
+	{
+		"id": 2,
+		"name": "Follow the Leader",
+		"picture": "res/music/files/jpg/album-2.jpg",
+		"releaseYear": 1998
+	},
+	{
+		"id": 3,
+		"name": "Take a look in the mirror",
+		"picture": "res/music/files/jpg/album-3.jpg",
+		"releaseYear": 2003
+	},
+	{
+		"id": 4,
+		"name": "See you on the other side",
+		"picture": "res/music/files/jpg/album-4.jpg",
+		"releaseYear": 2005
+	},
+	{
+		"id": 5,
+		"name": "Untouchables",
+		"picture": "res/music/files/jpg/album-5.jpg",
+		"releaseYear": 2002
+	}
+]

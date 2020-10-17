@@ -1,0 +1,63 @@
+[
+	{
+		"id": 11,
+		"name": "Somebody, Someone",
+		"album": {
+			"id": 1,
+			"picture": "res/music/files/jpg/album-1.jpg"
+		},
+		"artist": {
+			"id": 1,
+			"name": "KoRn"
+		},
+		"file": "res/music/files/mp3/song-11.mp3"
+	},
+	{
+		"id": 12,
+		"name": "Got the Life",
+		"album": {
+			"id": 2,
+			"picture": "res/music/files/jpg/album-2.jpg"
+		},
+		"artist": {
+			"id": 1,
+			"name": "KoRn"
+		}
+	},
+	{
+		"id": 13,
+		"name": "Right Now",
+		"album": {
+			"id": 3,
+			"picture": "res/music/files/jpg/album-3.jpg"
+		},
+		"artist": {
+			"id": 1,
+			"name": "KoRn"
+		}
+	},
+	{
+		"id": 14,
+		"name": "Coming Undone",
+		"album": {
+			"id": 4,
+			"picture": "res/music/files/jpg/album-4.jpg"
+		},
+		"artist": {
+			"id": 1,
+			"name": "KoRn"
+		}
+	},
+	{
+		"id": 15,
+		"name": "Here to Stay",
+		"album": {
+			"id": 5,
+			"picture": "res/music/files/jpg/album-5.jpg"
+		},
+		"artist": {
+			"id": 1,
+			"name": "KoRn"
+		}
+	}
+]

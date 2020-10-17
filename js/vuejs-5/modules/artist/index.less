@@ -1,0 +1,104 @@
+.artist-index-view {
+
+	> header {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		grid-template-rows: 1fr repeat(4, auto);
+		padding: @pad;
+		height: 35vh;
+		margin-bottom: -@pad;
+
+		&::before {
+			content: "Artista";
+			display: block;
+			grid-column: 1;
+			grid-row: 2;
+			position: relative;
+			margin-bottom: 10px;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			grid-column: 1 / span 3;
+			grid-row: 5;
+			height: 40px;
+			margin: 0 -@pad -@pad;
+			border-radius: 0 40px 0 0;
+			background: @bg-color;
+		}
+		
+		figure {
+			grid-column: 1 / span 3;
+			grid-row: 1 / span 5;
+			margin: -@pad;
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		h1 {
+			grid-column: 1;
+			grid-row: 3;
+			font-size: 30px;
+		}
+
+		.play {
+			grid-column: 3;
+			grid-row: 4 / span 2;
+			position: relative;
+			width: 50px;
+			height: 50px;
+			border: none;
+			border-radius: 50%;
+			font-size: 0;
+		}
+	}
+
+	.stats {
+		padding: @pad;
+		text-align: center;
+
+		dl {
+			display: grid;
+			grid-gap: 10px;
+			grid-auto-flow: dense;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		dt {
+			grid-row: 1;
+			font-size: 90%;
+		}
+
+		dd {
+			grid-row: 2;
+			font-size: 120%;
+			font-weight: bold;
+		}
+	}
+
+	.popular-songs {
+
+		.scroll-wrapper {
+			margin-left: -@pad;
+			margin-right: -@pad;
+			padding-left: @pad;
+			
+			&::after {
+				flex: 0 0 auto;
+				content: "";
+				display: block;
+				width: @pad;
+			}
+		}
+
+		.song-item {
+			width: calc((100vw - @pad * 4) / 2.3);
+		}
+	}
+}

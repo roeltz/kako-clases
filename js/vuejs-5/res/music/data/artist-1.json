@@ -1,0 +1,10 @@
+{
+	"id": 1,
+	"name": "KoRn",
+	"picture": "res/music/files/jpg/artist-1.jpg",
+	"stats": {
+		"songs": 112,
+		"followers": 60000000,
+		"following": 10
+	}
+}

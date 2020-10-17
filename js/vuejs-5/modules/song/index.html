@@ -1,0 +1,26 @@
+<section class="app-view song-index-view" v-if="song">
+	<header>
+		<h1>Playing now</h1>
+	</header>
+	<article class="song-info">
+		<figure>
+			<img :src="song.album.picture">
+		</figure>
+		<h1>{{ song.name }}</h1>
+		<p>{{ song.artist.name }}</p>
+	</article>
+	<section class="progress">
+		<div class="bar">
+			<div class="indicator" :style="{width: `${currentTimePercent}%`}"></div>
+		</div>
+		<time class="current">{{ toTimecode(currentTime) }}</time>
+		<time class="duration">{{ toTimecode(duration) }}</time>
+	</section>
+	<section class="controls">
+		<button class="shuffle simple-control">Aleatorio</button>
+		<button class="previous simple-control">Anterior</button>
+		<button class="play fancy-control" @click="togglePlay">Reproducir</button>
+		<button class="next simple-control">Siguiente</button>
+		<button class="repeat simple-control">Repetir</button>
+	</section>
+</section>

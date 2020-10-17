@@ -1,0 +1,35 @@
+.album-item {
+	display: grid;
+	grid-gap: 5px @pad;
+	grid-auto-flow: dense;
+	grid-template-columns: auto 1fr;
+
+	figure {
+		.square-aspect;
+		grid-column: 1;
+		grid-row: 1 / span 3;
+		width: 60px;
+
+		img {
+			border-radius: 10px;
+		}
+	}
+
+	h1 {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	p {
+		grid-column: 2;
+		color: @mute-color;
+		font-size: 90%;
+	}
+}
+
+.album-list {
+
+	.album-item + .album-item {
+		margin-top: @pad;
+	}
+}

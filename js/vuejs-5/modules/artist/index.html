@@ -1,0 +1,33 @@
+<section class="app-view artist-index-view" v-if="artist">
+	<header>
+		<figure>
+			<img :src="artist.picture">
+		</figure>
+		<h1>{{ artist.name }}</h1>
+		<button class="play">Reproducir todo</button>
+	</header>
+	<section class="stats">
+		<dl>
+			<dt>Canciones</dt>
+			<dd>{{ artist.stats.songs }}</dd>
+			<dt>Seguidores</dt>
+			<dd>{{ artist.stats.followers }}</dd>
+			<dt>Siguiendo</dt>
+			<dd>{{ artist.stats.following }}</dd>
+		</dl>
+	</section>
+	<section class="popular-songs song-list list">
+		<header>
+			<h1>Populares</h1>
+		</header>
+		<div class="scroll-wrapper">
+			<song-item v-for="s in popularSongs" :song="s"></song-item>
+		</div>
+	</section>
+	<section class="album-list list">
+		<header>
+			<h1>Álbumes</h1>
+		</header>
+		<album-item v-for="a in albums" :album="a"></album-item>
+	</section>
+</section>

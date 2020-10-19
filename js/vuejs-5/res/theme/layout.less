@@ -4,10 +4,54 @@ html {
 }
 
 main > header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	position: fixed;
+	z-index: 10;
 	top: 0;
 	left: 0;
 	right: 0;
-	padding: @pad;
-	display: none;
+	padding: @pad / 2;
+	filter: drop-shadow(0 1px 3px #000) drop-shadow(0 1px 3px #000);
+
+	h1 {
+		width: 40px;
+		height: 40px;
+		background: url("images/logo.svg") 50% 50% no-repeat / contain;
+		font-size: 0;
+		transition: 300ms;
+
+		&:not(.display) {
+			opacity: 0;
+			transform: translateY(calc(-100% - @pad / 2));
+		}
+	}
+
+	nav {
+		display: contents;
+
+		button {
+			width: 30px;
+			height: 30px;
+			border: none;
+			background: 50% 50% no-repeat / contain;
+			font-size: 0;
+		
+			&.back {
+				order: -1;
+				background-image: url("images/icon-back.svg");
+				transition: 300ms;
+
+				&[disabled] {
+					opacity: 0;
+					transform: translateX(-30px - @pad / 2);
+				}
+			}
+
+			&.menu {
+				background-image: url("images/icon-menu.svg");
+			}
+		}
+	}
 }

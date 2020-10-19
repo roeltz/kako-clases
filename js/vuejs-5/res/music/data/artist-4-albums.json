@@ -1,0 +1,32 @@
+[
+	{
+		"id": 16,
+		"name": "Pablo Honey",
+		"picture": "res/music/files/jpg/album-16.jpg",
+		"releaseYear": 1993
+	},
+	{
+		"id": 17,
+		"name": "The Bends",
+		"picture": "res/music/files/jpg/album-17.jpg",
+		"releaseYear": 1995
+	},
+	{
+		"id": 18,
+		"name": "OK Computer",
+		"picture": "res/music/files/jpg/album-18.jpg",
+		"releaseYear": 1997
+	},
+	{
+		"id": 19,
+		"name": "Kid A",
+		"picture": "res/music/files/jpg/album-19.jpg",
+		"releaseYear": 2000
+	},
+	{
+		"id": 20,
+		"name": "In Rainbows",
+		"picture": "res/music/files/jpg/album-20.jpg",
+		"releaseYear": 2007
+	}
+]

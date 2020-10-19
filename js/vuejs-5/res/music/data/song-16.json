@@ -1,0 +1,13 @@
+{
+	"id": 16,
+	"name": "Basket Case",
+	"album": {
+		"id": 6,
+		"picture": "res/music/files/jpg/album-6.jpg"
+	},
+	"artist": {
+		"id": 2,
+		"name": "Green Day"
+	},
+	"file": "res/music/files/mp3/song-11.mp3"
+}

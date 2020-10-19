@@ -11,9 +11,9 @@
 <body>
 	<main>
 		<header>
-			<h1>Music App</h1>
+			<h1 :class="{display: displayLogo}">Music App</h1>
 			<nav>
-				<button class="back" @click="goBack">Volver</button>
+				<button class="back" :disabled="$route.name === 'home'" @click="goBack">Volver</button>
 				<button class="menu" @click="toggleMenu">Menú</button>
 			</nav>
 		</header>

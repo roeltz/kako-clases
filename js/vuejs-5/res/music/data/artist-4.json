@@ -1,0 +1,10 @@
+{
+	"id": 4,
+	"name": "Radiohead",
+	"picture": "res/music/files/jpg/artist-4.jpg",
+	"stats": {
+		"songs": 1000,
+		"followers": 96538375,
+		"following": 1
+	}
+}

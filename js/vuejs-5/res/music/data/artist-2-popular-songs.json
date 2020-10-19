@@ -1,0 +1,63 @@
+[
+	{
+		"id": 16,
+		"name": "Basket Case",
+		"album": {
+			"id": 6,
+			"picture": "res/music/files/jpg/album-6.jpg"
+		},
+		"artist": {
+			"id": 2,
+			"name": "Green Day"
+		},
+		"file": "res/music/files/mp3/song-11.mp3"
+	},
+	{
+		"id": 17,
+		"name": "Brain Stew",
+		"album": {
+			"id": 7,
+			"picture": "res/music/files/jpg/album-7.jpg"
+		},
+		"artist": {
+			"id": 2,
+			"name": "Green Day"
+		}
+	},
+	{
+		"id": 18,
+		"name": "Hitching' a Ride",
+		"album": {
+			"id": 8,
+			"picture": "res/music/files/jpg/album-8.jpg"
+		},
+		"artist": {
+			"id": 2,
+			"name": "Green Day"
+		}
+	},
+	{
+		"id": 19,
+		"name": "Jesus of Suburbia",
+		"album": {
+			"id": 9,
+			"picture": "res/music/files/jpg/album-9.jpg"
+		},
+		"artist": {
+			"id": 2,
+			"name": "Green Day"
+		}
+	},
+	{
+		"id": 20,
+		"name": "Stray Heart",
+		"album": {
+			"id": 10,
+			"picture": "res/music/files/jpg/album-10.jpg"
+		},
+		"artist": {
+			"id": 2,
+			"name": "Green Day"
+		}
+	}
+]

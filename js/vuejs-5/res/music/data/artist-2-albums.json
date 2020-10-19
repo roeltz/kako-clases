@@ -1,0 +1,32 @@
+[
+	{
+		"id": 6,
+		"name": "Dookie",
+		"picture": "res/music/files/jpg/album-6.jpg",
+		"releaseYear": 1994
+	},
+	{
+		"id": 7,
+		"name": "Insomniac",
+		"picture": "res/music/files/jpg/album-7.jpg",
+		"releaseYear": 1995
+	},
+	{
+		"id": 8,
+		"name": "Nimrod",
+		"picture": "res/music/files/jpg/album-8.jpg",
+		"releaseYear": 1997
+	},
+	{
+		"id": 9,
+		"name": "American Idiot",
+		"picture": "res/music/files/jpg/album-9.jpg",
+		"releaseYear": 2004
+	},
+	{
+		"id": 10,
+		"name": "DOS!",
+		"picture": "res/music/files/jpg/album-10.jpg",
+		"releaseYear": 2012
+	}
+]

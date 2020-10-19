@@ -1,0 +1,32 @@
+[
+	{
+		"id": 11,
+		"name": "Origin of Symmetry",
+		"picture": "res/music/files/jpg/album-11.jpg",
+		"releaseYear": 2001
+	},
+	{
+		"id": 12,
+		"name": "Absolution",
+		"picture": "res/music/files/jpg/album-12.jpg",
+		"releaseYear": 2004
+	},
+	{
+		"id": 13,
+		"name": "Black Holes and Revelations",
+		"picture": "res/music/files/jpg/album-13.jpg",
+		"releaseYear": 2006
+	},
+	{
+		"id": 14,
+		"name": "The Resistance",
+		"picture": "res/music/files/jpg/album-14.jpg",
+		"releaseYear": 2009
+	},
+	{
+		"id": 15,
+		"name": "The 2nd Law",
+		"picture": "res/music/files/jpg/album-15.jpg",
+		"releaseYear": 2012
+	}
+]

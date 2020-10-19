@@ -1,6 +1,10 @@
-<article class="song-item" @click="playSong">
-	<figure>
+<article class="song-item" :class="{compact}" @click="playSong">
+	<figure v-if="!compact">
 		<img :src="song.album.picture">
 	</figure>
 	<h1>{{ song.name }}</h1>
+	<template v-if="compact">
+		<div class="duration">{{ $toTimecode(song.duration) }}</div>
+		<div class="number">{{ song.number }}</div>
+	</template>
 </article>

@@ -7,7 +7,9 @@ define([
 		template: html,
 		props: ["album"],
 		methods: {
-			
+			openAlbum() {
+				this.$router.push({name: "album", params: {id: this.album.id, album: this.album}});
+			}
 		}
 	});
 });

@@ -1,0 +1,13 @@
+{
+	"id": 11,
+	"name": "Somebody, Someone",
+	"album": {
+		"id": 1,
+		"picture": "res/music/files/jpg/album-1.jpg"
+	},
+	"artist": {
+		"id": 1,
+		"name": "KoRn"
+	},
+	"file": "res/music/files/mp3/song-11.mp3"
+}

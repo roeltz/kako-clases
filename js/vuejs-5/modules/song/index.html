@@ -13,13 +13,13 @@
 		<div class="bar">
 			<div class="indicator" :style="{width: `${currentTimePercent}%`}"></div>
 		</div>
-		<time class="current">{{ toTimecode(currentTime) }}</time>
-		<time class="duration">{{ toTimecode(duration) }}</time>
+		<time class="current">{{ $toTimecode(currentTime) }}</time>
+		<time class="duration">{{ $toTimecode(duration) }}</time>
 	</section>
 	<section class="controls">
 		<button class="shuffle simple-control">Aleatorio</button>
 		<button class="previous simple-control">Anterior</button>
-		<button class="play fancy-control" @click="togglePlay">Reproducir</button>
+		<button class="play fancy-control" :class="{active: isPlaying}" @click="togglePlay">Reproducir</button>
 		<button class="next simple-control">Siguiente</button>
 		<button class="repeat simple-control">Repetir</button>
 	</section>

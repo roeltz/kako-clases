@@ -1,0 +1,63 @@
+[
+	{
+		"id": 21,
+		"name": "Karma Police",
+		"album": {
+			"id": 18,
+			"picture": "res/music/files/jpg/album-18.jpg"
+		},
+		"artist": {
+			"id": 4,
+			"name": "Radiohead"
+		},
+		"file": "res/music/files/mp3/song-11.mp3"
+	},
+	{
+		"id": 22,
+		"name": "Creep",
+		"album": {
+			"id": 16,
+			"picture": "res/music/files/jpg/album-16.jpg"
+		},
+		"artist": {
+			"id": 4,
+			"name": "Radiohead"
+		}
+	},
+	{
+		"id": 23,
+		"name": "High and Dry",
+		"album": {
+			"id": 17,
+			"picture": "res/music/files/jpg/album-17.jpg"
+		},
+		"artist": {
+			"id": 4,
+			"name": "Radiohead"
+		}
+	},
+	{
+		"id": 24,
+		"name": "Kid A",
+		"album": {
+			"id": 19,
+			"picture": "res/music/files/jpg/album-19.jpg"
+		},
+		"artist": {
+			"id": 4,
+			"name": "Radiohead"
+		}
+	},
+	{
+		"id": 25,
+		"name": "15 Step",
+		"album": {
+			"id": 20,
+			"picture": "res/music/files/jpg/album-20.jpg"
+		},
+		"artist": {
+			"id": 4,
+			"name": "Radiohead"
+		}
+	}
+]

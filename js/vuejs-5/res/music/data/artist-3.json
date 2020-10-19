@@ -1,0 +1,10 @@
+{
+	"id": 3,
+	"name": "Muse",
+	"picture": "res/music/files/jpg/artist-3.jpg",
+	"stats": {
+		"songs": 500,
+		"followers": 20000000,
+		"following": 50
+	}
+}

@@ -5,10 +5,10 @@ define([
 
 	return Vue.component("song-item", {
 		template: html,
-		props: ["song"],
+		props: ["song", "compact"],
 		methods: {
 			playSong() {
-				this.$router.push({name: "song", params: {id: this.song.id, song: this.song}});
+				this.$router.push({name: "song", params: {id: this.song.id}});
 			}
 		}
 	});

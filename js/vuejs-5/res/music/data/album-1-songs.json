@@ -1,0 +1,44 @@
+[
+	{
+		"id": 100,
+		"number": 1,
+		"name": "Dead",
+		"file": "res/music/files/mp3/song-11.mp3",
+		"duration": 60
+	},
+	{
+		"id": 101,
+		"number": 2,
+		"name": "Falling Away From Me",
+		"file": "res/music/files/mp3/song-11.mp3",
+		"duration": 220
+	},
+	{
+		"id": 102,
+		"name": "Trash",
+		"number": 3,
+		"file": "res/music/files/mp3/song-11.mp3",
+		"duration": 220
+	},
+	{
+		"id": 103,
+		"name": "4U",
+		"number": 4,
+		"file": "res/music/files/mp3/song-11.mp3",
+		"duration": 40
+	},
+	{
+		"id": 104,
+		"number": 5,
+		"name": "Beg For Me",
+		"file": "res/music/files/mp3/song-11.mp3",
+		"duration": 240
+	},
+	{
+		"id": 11,
+		"number": 11,
+		"name": "Somebody, Someone",
+		"file": "res/music/files/mp3/song-11.mp3",
+		"duration": 220
+	}
+]

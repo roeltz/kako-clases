@@ -1,0 +1,13 @@
+{
+	"id": 26,
+	"name": "Karma Police",
+	"album": {
+		"id": 12,
+		"picture": "res/music/files/jpg/album-12.jpg"
+	},
+	"artist": {
+		"id": 4,
+		"name": "Radiohead"
+	},
+	"file": "res/music/files/mp3/song-11.mp3"
+}

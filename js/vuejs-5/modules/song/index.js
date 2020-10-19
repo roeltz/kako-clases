@@ -5,10 +5,12 @@ define([
 
 	return {
 		template: html,
-		props: ["id", "song"],
+		props: ["id"],
 		data: () => ({
+			song: null,
 			currentTime: 0,
-			duration: 0
+			duration: 0,
+			isPlaying: false,
 		}),
 		computed: {
 			currentTimePercent() {
@@ -22,11 +24,7 @@ define([
 				} else {
 					this._audio.pause();
 				}
-			},
-			toTimecode(seconds) {
-				let m = (Math.floor(seconds / 60)).toString().padStart(2, "0");
-				let s = (Math.round(seconds) % 60).toString().padStart(2, "0");
-				return `${m}:${s}`;
+				this.isPlaying = !this._audio.paused;
 			}
 		},
 		async created() {
@@ -37,6 +35,11 @@ define([
 			this._audio = new Audio(this.song.file);
 			this._audio.addEventListener("durationchange", e => this.duration = this._audio.duration);
 			this._audio.addEventListener("timeupdate", e => this.currentTime = this._audio.currentTime);
+
+			this.$root.setLogo(false);
+		},
+		beforeDestroy() {
+			this.$root.setLogo(true);
 		}
 	};
 });

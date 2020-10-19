@@ -1,0 +1,10 @@
+{
+	"id": 1,
+	"name": "Issues",
+	"picture": "res/music/files/jpg/album-1.jpg",
+	"releaseYear": 1999,
+	"artist": {
+		"id": 1,
+		"name": "KoRn"
+	}
+}

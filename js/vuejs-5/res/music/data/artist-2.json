@@ -1,0 +1,10 @@
+{
+	"id": 2,
+	"name": "Green Day",
+	"picture": "res/music/files/jpg/artist-2.jpg",
+	"stats": {
+		"songs": 80,
+		"followers": 10000000,
+		"following": 12500
+	}
+}

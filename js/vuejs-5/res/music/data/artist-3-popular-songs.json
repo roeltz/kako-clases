@@ -1,0 +1,63 @@
+[
+	{
+		"id": 21,
+		"name": "Time is Running Out",
+		"album": {
+			"id": 12,
+			"picture": "res/music/files/jpg/album-12.jpg"
+		},
+		"artist": {
+			"id": 3,
+			"name": "Muse"
+		},
+		"file": "res/music/files/mp3/song-11.mp3"
+	},
+	{
+		"id": 22,
+		"name": "Plug in Baby",
+		"album": {
+			"id": 11,
+			"picture": "res/music/files/jpg/album-11.jpg"
+		},
+		"artist": {
+			"id": 3,
+			"name": "Muse"
+		}
+	},
+	{
+		"id": 23,
+		"name": "Knights of Cydonia",
+		"album": {
+			"id": 13,
+			"picture": "res/music/files/jpg/album-13.jpg"
+		},
+		"artist": {
+			"id": 3,
+			"name": "Muse"
+		}
+	},
+	{
+		"id": 24,
+		"name": "Uprising",
+		"album": {
+			"id": 14,
+			"picture": "res/music/files/jpg/album-14.jpg"
+		},
+		"artist": {
+			"id": 3,
+			"name": "Muse"
+		}
+	},
+	{
+		"id": 25,
+		"name": "Pressure",
+		"album": {
+			"id": 15,
+			"picture": "res/music/files/jpg/album-15.jpg"
+		},
+		"artist": {
+			"id": 3,
+			"name": "Muse"
+		}
+	}
+]

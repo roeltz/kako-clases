@@ -1,0 +1,13 @@
+{
+	"id": 21,
+	"name": "Time is Running Out",
+	"album": {
+		"id": 12,
+		"picture": "res/music/files/jpg/album-12.jpg"
+	},
+	"artist": {
+		"id": 3,
+		"name": "Muse"
+	},
+	"file": "res/music/files/mp3/song-11.mp3"
+}

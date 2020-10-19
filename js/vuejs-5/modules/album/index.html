@@ -1,0 +1,15 @@
+<section class="app-view album-index-view" v-if="album">
+	<header>
+		<figure>
+			<img :src="album.picture">
+		</figure>
+		<h1>{{ album.name }}</h1>
+		<button class="play">Reproducir todo</button>
+	</header>
+	<section class="compact-song-list list">
+		<header>
+			<h1>Canciones</h1>
+		</header>
+		<song-item v-for="s in songs" :song="s" :compact="true"></song-item>
+	</section>
+</section>

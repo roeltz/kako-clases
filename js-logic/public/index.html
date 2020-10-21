@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="res/theme/style.css">
+</head>
+<body>
+	<main>
+		<form class="login">
+			<input type="text" name="nick" placeholder="nick" required>
+			<button>Entrar</button>
+		</form>
+		<section class="history">
+
+		</section>
+		<form class="chat">
+			<input type="text" name="message" placeholder="mensaje" required>
+			<button>Enviar</button>
+		</form>
+		<ul class="people">
+
+		</ul>
+		<script src="socket.io/socket.io.js"></script>
+		<script>
+			let socket;
+
+			let loginForm = document.querySelector(".login");
+			let chatForm = document.querySelector(".chat");
+			let history = document.querySelector(".history");
+			let peopleList = document.querySelector(".people");
+
+			loginForm.addEventListener("submit", e => {
+				e.preventDefault();
+				socket = io("ws://localhost:8000/notifications");
+				socket.emit("login", {nick: loginForm.nick.value});
+
+				socket.on("chat-message", (data) => {
+					let e = document.createElement("div");
+					e.innerHTML = `<strong>${data.user.nick}:</strong> ${data.message}`;
+					history.appendChild(e);
+				});
+
+				socket.on("chat-people", (users) => {
+					peopleList.innerHTML = "";
+
+					for (let u of users) {
+						let e = document.createElement("li");
+						e.textContent = u.nick;
+						peopleList.appendChild(e);
+					}
+				});
+
+				chatForm.addEventListener("submit", e => {
+					e.preventDefault();
+
+					socket.emit("chat-message", {
+						message: chatForm.message.value
+					});
+
+					chatForm.message.value = "";
+				});
+			});
+		</script>
+	</main>
+</body>
+</html>

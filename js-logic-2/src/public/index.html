@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Chat</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="res/theme/style.css">
+</head>
+<body>
+	<main>
+		<template v-if="mode === 'login'">
+			<form class="login-form" @submit.prevent="login">
+				<h1>Bienvenido al chat</h1>
+				<div class="field">
+					<label>Nick</label>
+					<input type="text" v-model="user.nick" required>
+				</div>
+				<footer>
+					<button>Login</button>
+					<p class="error" v-if="error">{{ error }}</p>
+				</footer>
+			</form>
+		</template>
+		<template v-if="mode === 'chat'">
+			<section class="chat-section">
+				<header>
+					<h1>Chat</h1>
+					<button @click="logout">Cerrar</button>
+				</header>
+				<section class="history" ref="history">
+					<div class="message" :class="{'same-user': m.isFromSameUser}" v-for="m in history">
+						<div class="user">{{ m.user.nick }}</div>
+						<div class="text">{{ m.text }}</div>
+					</div>
+				</section>
+				<form @submit.prevent="sendMessage">
+					<input type="text" v-model="chatMessage.text">
+					<button>Enviar</button>
+				</form>
+				<section class="people">
+					<ul>
+						<li v-for="p in people">{{ p.nick }}</li>
+					</ul>
+				</section>
+			</section>
+		</template>
+	</main>
+	<script src="res/scripts/lib/require.js"></script>
+	<script src="res/scripts/config.js"></script>
+	<script src="res/scripts/main.js"></script>
+</body>
+</html>

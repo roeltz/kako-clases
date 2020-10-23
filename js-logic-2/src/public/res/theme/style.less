@@ -1,0 +1,73 @@
+.chat-section {
+	display: grid;
+	grid-template-columns: 1fr 10em;
+	grid-template-rows: auto 1fr auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		grid-column: span 2;
+		padding: 10px;
+		background: #000;
+		color: #fff;
+		
+		h1 {
+			margin: 0;
+		}
+	}
+
+	.history {
+		grid-column: 1;
+		grid-row: 2;
+		overflow: auto;
+		
+		.message {
+			padding: 5px;
+			
+			.user {
+				font-weight: bold;
+			}
+			
+			+ .message:not(.same-user) {
+				border-top: 1px solid #ccc;
+			}
+
+			&.same-user {
+
+				.user {
+					display: none;
+				}
+			}
+		}
+	}
+
+	form {
+		display: flex;
+		grid-column: 1;
+		grid-row: 3;
+		padding: 10px;
+		background: #000;
+		color: #fff;
+
+		input {
+			flex: 1 1;
+			padding: 5px;
+		}
+
+		button {
+			flex: 0 0 auto;
+		}
+	}
+
+	.people {
+		grid-column: 2;
+		grid-row: 2 / span 2;
+		padding: 10px;
+		background: silver;
+	}
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+	<main>
+		<video autoplay></video>
+	</main>
+	<script>
+		async function init() {
+			let video = document.querySelector("video");
+	
+			try {
+				let stream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+				video.srcObject = stream;
+			} catch (err) {
+				alert("No se pudo acceder a la cámara ni el micrófono");
+			}
+		}
+
+		init();
+	</script>
+</body>
+</html>

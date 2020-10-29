@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<style>
+		figure {
+			position: relative;
+			width: 640px;
+			height: 480px;
+		}
+
+		figure > * {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		canvas {
+			padding: 10px;
+			background: #fff;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+			animation: photo-taken 400ms;
+		}
+
+		@keyframes photo-taken {
+			0% {
+				filter: brightness(200%);
+				opacity: 0;
+				transform: scale(1.2) rotate(20deg);
+			}
+		}
+
+		canvas:not(.taken) {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<figure>
+			<video autoplay></video>
+			<canvas width="640" height="480"></canvas>
+		</figure>
+		<button class="take">Tomar foto</button>
+		<button class="reset">Volver</button>
+		<button class="download">Descargar</button>
+		<button class="send">Publicar</button>
+	</main>
+	<script>
+		async function init() {
+			let canvas = document.querySelector("canvas");
+			let takeButton = document.querySelector(".take");
+			let resetButton = document.querySelector(".reset");
+			let downloadButton = document.querySelector(".download");
+			let sendButton = document.querySelector(".send");
+			let video = document.querySelector("video");
+			let clickSound = new Audio("notification.mp3");
+
+			clickSound.preload = "auto";
+
+			let context = canvas.getContext("2d");
+	
+			try {
+				let stream = await navigator.mediaDevices.getUserMedia({video: true});
+				video.srcObject = stream;
+			} catch (err) {
+				alert("No se pudo acceder a la cámara ni el micrófono");
+			}
+
+			takeButton.addEventListener("click", () => {
+				context.drawImage(video, 0, 0, 640, 480);
+				canvas.classList.add("taken");
+				video.pause();
+				clickSound.play();
+			});
+			
+			resetButton.addEventListener("click", () => {
+				canvas.classList.remove("taken");
+				video.play();
+			});
+
+			downloadButton.addEventListener("click", () => {
+				//console.log(canvas.toDataURL("image/jpeg", 0.8));
+				canvas.toBlob(blob => {
+					let url = URL.createObjectURL(blob);
+					// Crear link dinámicamente para disparar descarga
+					let link = document.createElement("a");
+					link.href = url;
+					link.download = "foto.jpg";
+					link.click();
+				}, "image/jpeg", 0.8);
+			});
+
+			sendButton.addEventListener("click", () => {
+				canvas.toBlob(async blob => {
+					let data = new FormData();
+
+					data.append("image", blob);
+	
+					let response = await fetch("publish.php", {
+						method: "post",
+						body: data
+					});
+					let responseData = await response.json();
+
+					console.log(responseData);
+				}, "image/jpeg", 0.8);
+			});
+		}
+
+		init();
+	</script>
+</body>
+</html>

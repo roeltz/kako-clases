@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+	<main>
+		<canvas width="1000" height="500" onclick="main()"></canvas>
+	</main>
+	<script>
+		let inited = false;
+
+		async function main() {
+			if (inited) return; else inited = true;
+
+			let stream = await navigator.mediaDevices.getUserMedia({"audio": true});
+			let canvas = document.querySelector("canvas");
+			let context = canvas.getContext("2d");
+			let nube = new Image(); // document.createElement("img")
+			let audioContext = new AudioContext();
+			let analyzer = audioContext.createAnalyser();
+			let source = audioContext.createMediaStreamSource(stream);
+
+			source.connect(analyzer);
+			//source.connect(audioContext.destination);
+			
+			nube.src = "nube.webp";
+			
+			let gradient = context.createLinearGradient(0, 0, 1000, 500);
+			gradient.addColorStop(0, "red");
+			gradient.addColorStop(1, "blue");
+			
+			context.shadowBlur = 10;
+			context.shadowOffsetX = 5;
+			context.shadowOffsetY = 5;
+	
+			function p(data, iv, i) {
+				if (iv === -1 || iv >= data.length) {
+					return {
+						x: (iv - i) * 10,
+						y: 250
+					}
+				} else {
+					return {
+						x: (iv - i) * 10,
+						y: 250 + (-1 + (data[iv] * 2)) * 250
+					};
+				}
+			}
+	
+			function run(data, i) {
+	
+				context.clearRect(0, 0, 1000, 500);
+				context.fillStyle = gradient;
+				context.strokeStyle = "green";
+				context.lineWidth = 2;
+	
+				context.beginPath();
+				context.moveTo(0, 250);
+				
+				for (let iv = i; iv < i + 100; iv += 3) {
+					let {x, y} = p(data, iv, i);
+					let {x: x1, y: y1} = p(data, iv + 1, i);
+					let {x: x2, y: y2} = p(data, iv + 2, i);
+	
+					context.bezierCurveTo(x, y, x1, y1, x2, y2);
+				}
+	
+				data.slice(i, i + 100).forEach((value, iv) => {
+					//context.lineTo(x, y);
+				});
+	
+				context.lineTo(1000, 250); // medio final
+				context.lineTo(1000, 500); // esq inf-der
+				context.lineTo(0, 500); // esq inf-izq
+				//context.lineTo(0, 250); // medio inicial
+	
+				context.shadowColor = "black";
+				context.fill();
+				context.shadowColor = "transparent";
+				context.stroke();
+				
+				context.shadowColor = "black";
+				let {x: nx, y: ny} = p(data, i + 50, i);
+				context.drawImage(nube, nx, ny, 50, 50);
+			}
+	
+			let i = 0;
+	
+			/*fetch("data.json").then(res => res.json()).then(data => {
+	
+				requestAnimationFrame(function step(){
+					run(data, i += 3);
+					requestAnimationFrame(step);
+				});
+	
+			});*/
+	
+			requestAnimationFrame(function step(){
+				let data = new Float32Array(128);
+				analyzer.fftSize = 256;
+				analyzer.getFloatTimeDomainData(data);
+				run(data, 0);
+				requestAnimationFrame(step);
+			});
+		}
+
+
+	</script>
+</body>
+</html>

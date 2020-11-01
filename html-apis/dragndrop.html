@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<style>
+		main {
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+		}
+
+		main.drag-active {
+			background: red;
+		}
+
+		img {
+			width: 100px;
+			height: 100px;
+			object-fit: contain;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		
+	</main>
+	<figure></figure>
+
+	<script>
+		let dropZone = document.querySelector("main");
+		let figure = document.querySelector("figure");
+		let files = [];
+
+		dropZone.addEventListener("dragover", e => {
+			e.preventDefault();
+			dropZone.classList.add("drag-active");
+		});
+
+		dropZone.addEventListener("dragleave", e => {
+			dropZone.classList.remove("drag-active");
+		});
+
+		dropZone.addEventListener("drop", e => {
+			e.preventDefault();
+			for (let f of e.dataTransfer.files) {
+				files.push(f);
+				let img = document.createElement("img");
+				img.src = URL.createObjectURL(f);
+				figure.appendChild(img);
+			}
+		});
+
+		function upload() {
+			let data = new FormData();
+
+			for (let f of files) {
+				data.append("files[]", f);
+			}
+
+			fetch("upload.php", {
+				method: "post",
+				body: data
+			}).then(res => res.json()).then(data => {
+				
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+	"require": {
+		"monolog/monolog": "1.x",
+		"pipa/data-mysql": "*",
+		"pipa/http": "*",
+		"pipa/orm": "*"
+	},
+	"autoload": {
+		"psr-0": {
+			"": ["src/controllers/", "src/model/"]
+		}
+	},
+	"minimum-stability": "dev"
+}

@@ -1,0 +1,27 @@
+<form @submit.prevent="requestSignup">
+	<h1>Bienvenido al Twitter Pirata</h1>
+	<p>Por favor, llena tus datos para registrarte</p>
+
+	<div class="field">
+		<label>Nombre</label>
+		<input type="text" v-model="user.name" maxlength="100" required>
+	</div>
+	<div class="field">
+		<label>Email</label>
+		<input type="email" v-model="user.email" maxlength="100" required>
+	</div>
+	<div class="field">
+		<label>Password</label>
+		<input type="password" v-model="user.password" minlength="8" required>
+	</div>
+	<div class="field">
+		<label>Confirmar password</label>
+		<input type="password" v-model="password2" minlength="8" required>
+	</div>
+	<footer>
+		<p class="error" v-if="error">
+			{{ error }}
+		</p>
+		<button>Registrarme</button>
+	</footer>
+</form>

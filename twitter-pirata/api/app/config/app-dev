@@ -1,0 +1,27 @@
+{
+	"cache": {
+		"file": {
+			"dir#path": "../cache/"
+		}
+	},
+	"data": {
+		"sources": {
+			"default": {
+				"db": "twitter_pirata",
+				"host": "localhost",
+				"user": "root",
+				"password": "Over9000!!!",
+				"options": {}
+			}
+		},
+		"logger": {
+			"level": "100",
+			"path#file": "../log/data-{year}{month}.log"
+		}
+	},
+	"http": {
+		"base-url": "/twitter-pirata/api/",
+		"views-dir#path": "../src/views/",
+		"logger": true
+	}
+}

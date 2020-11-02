@@ -1,0 +1,32 @@
+<section>
+	<form @submit.prevent="publish">
+		<div class="field">
+			<label>Contenido</label>
+			<textarea rows="3" v-model="draft.content" required maxlength="280"></textarea>
+		</div>
+		<footer>
+			<button :disabled="loading">
+				<template v-if="lastEditedTweet">
+					Actualizar
+				</template>
+				<template v-else>
+					Publicar
+				</template>
+			</button>
+		</footer>
+	</form>
+	<section class="tweets">
+		<article class="tweet" v-for="t in tweets">
+			<blockquote>
+				<p>{{ t.content }}</p>
+				<cite>{{ t.user.name }}</cite>
+			</blockquote>
+			<footer>
+				<small><time>{{ formatCreationDate(t.created) }}</time></small>
+				<button v-if="isMine(t)" @click="startEditTweet(t)">Editar</button>
+				<button v-if="isMine(t)" @click="deleteTweet(t)">Eliminar</button>
+			</footer>
+		</article>
+		<button @click="loadMoreTweets" :disabled="atEOL">Cargar más tweets</button>
+	</section>
+</section>
